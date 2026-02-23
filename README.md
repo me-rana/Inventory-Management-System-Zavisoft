@@ -5,7 +5,9 @@ A Laravel-based inventory and sales management system with product tracking, cat
 ---
 
 ## 📸 Cover Image
-(Add your screenshot/banner here)
+<p align="center">
+  <img src="public/assets/img/project_cover.png" width="800">
+</p>
 
 ---
 
