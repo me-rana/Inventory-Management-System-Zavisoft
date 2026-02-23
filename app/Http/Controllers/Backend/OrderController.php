@@ -11,26 +11,6 @@ use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
-    //
-    // public function index(Request $request)
-    // {
-    //     $query = Order::with(['items.product'])->latest();
-
-    //     if ($request->from && $request->to) {
-    //         $query->whereBetween('order_date', [$request->from, $request->to]);
-    //     }
-
-    //     $orders = $query->get();
-    //     $products = Product::select('id', 'name', 'sell_price', 'purchase_price')->get();
-
-    //     $totals = [
-    //         'grand' => $orders->sum('grand_total'),
-    //         'paid'  => $orders->sum('paid_amount'),
-    //         'due'   => $orders->sum('due_amount'),
-    //     ];
-
-    //     return view('orders.index', compact('orders', 'products', 'totals'));
-    // }
 
     public function index(Request $request)
 {
@@ -52,7 +32,7 @@ class OrderController extends Controller
     // NEW: Purchase Cost from order items
     $purchaseCost = $orders->sum(function ($order) {
         return $order->items->sum(function ($item) {
-            return $item->purchase_price * $item->qty;
+            return $item->purchase_price * $item->quantity;
         });
     });
 
